@@ -172,24 +172,20 @@ const getPortfolioByMultipleToken = async (transacData, dateStamp) => {
       }
     }
   });
-  let deposit = 0;
-  let withdrawal = 0;
+  console.log("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+  console.log('Portfolio :');
   for (const obj of tokenMap) {
     const key = obj[0];
     const value = obj[1];
     const usdValue = await getUSDbyToken(key, dateStamp);
-
     // there is some very old transaction data, eg : BTC deposit in 2000,
     // in this case we cannot fetch USD value.
     if (usdValue[key].USD === 0) {
       console.log("not able to find USD value of token in given date");
       return;
     }
-    withdrawal += value.withdrawal * usdValue[key].USD;
-    deposit += value.deposit * usdValue[key].USD;
+    console.log(`${key} => ${((value.deposit - value.withdrawal) * usdValue[key].USD).toFixed(4)}$`);
   }
-  console.log("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-  console.log(`Portfolio : ${(deposit - withdrawal).toFixed(4)}$`);
   console.log("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
 };
 
