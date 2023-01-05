@@ -116,7 +116,6 @@ const getLatestTransactionsByToken = async (token) => {
     let latestData = await transactions.findOne({
       token: token.toUpperCase().replace(/,/g, ""),
     });
-    console.log("ld", latestData);
     dateStamp = getLatestDateStamp(latestData.timestamp);
     transacData = await transactions
       .find({
@@ -124,8 +123,6 @@ const getLatestTransactionsByToken = async (token) => {
         token: token.toUpperCase(),
       })
       .toArray();
-
-    console.log(transacData);
   } catch (err) {
     console.log("error, while fetching data from db", err);
   }
