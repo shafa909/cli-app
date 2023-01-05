@@ -3,6 +3,7 @@
 const readline = require("readline");
 const { MongoClient } = require("mongodb");
 const URI = "mongodb://localhost:27017/";
+const { getUSDbyToken } = require("./api");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -16,7 +17,7 @@ const connectDB = async () => {
     URI,
     { useNewUrlParser: true, useUnifiedTopology: true },
     async (err, db) => {
-      if (err) console.log('error while connecting with db');
+      if (err) console.log("error while connecting with db");
       _db = db;
       console.log("Connected");
       rl.prompt();
