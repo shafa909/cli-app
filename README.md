@@ -51,7 +51,7 @@ mongoimport --db=crypto --collection=t --file=yourFile.json
 
 - with only token :
 
-- <img width="571" alt="Screenshot 2023-01-05 at 11 16 48 PM" src="https://user-images.githubusercontent.com/23289583/210854421-25343cf5-ae8d-4086-9d2d-2a9474894e22.png">
+<img width="571" alt="Screenshot 2023-01-05 at 11 16 48 PM" src="https://user-images.githubusercontent.com/23289583/210854421-25343cf5-ae8d-4086-9d2d-2a9474894e22.png">
 
 - with empty string :
 
