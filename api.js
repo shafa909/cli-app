@@ -6,17 +6,18 @@ const getUSDbyToken = async (token, date) => {
   var config = {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      Authorization: API_KEY,
+      // Authorization: API_KEY,
     },
   };
-  await axios
+  return await axios
     .post(
-      `https://min-api.cryptocompare.com/data/pricehistorical?fsym=${token}&tsyms=USD&ts=${date}`,
+      `https://min-api.cryptocompare.com/data/pricehistorical?fsym=${token}&tsyms=USD&ts=${
+        date.valueOf() / 1000
+      }`,
       {},
       config
     )
     .then((response) => {
-      console.log(response.data);
       return response.data;
     })
     .catch(() => console.log("Error While Fetching USD Value"));
