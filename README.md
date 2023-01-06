@@ -23,6 +23,9 @@ mongoimport --db=crypto --collection=t --file=yourFile.json
 ### Usage
 - date format should be DD-MM-YYYY, eg: date=15-12-2017
 - token can BTC, btc, ETH,  eg: token=BTC  
+
+### Command
+
 - command format can, date and token, it results the portfolio value of that token in USD on that date
 ```
 >> date=11-12-2018,token=ETH
@@ -31,7 +34,7 @@ mongoimport --db=crypto --collection=t --file=yourFile.json
 ```
 >> date=11-12-2018
 ```
-- command format can, only token, it results portfolio value per token in USD on that date
+- command format can, only token, it results latest portfolio value the token in USD :
 ```
 >> token=ETH
 ```
